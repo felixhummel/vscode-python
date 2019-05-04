@@ -33,8 +33,25 @@ https://code.visualstudio.com/docs/python/python-tutorial
 ```
 
 # Remote Docker Compose
-set `$HOME` https://github.com/Microsoft/vscode-remote-release/issues/22
+- https://devblogs.microsoft.com/python/remote-python-development-in-visual-studio-code/
+- https://code.visualstudio.com/docs/remote/containers
+- https://github.com/Microsoft/python-sample-tweeterapp
 
-Ctrl+Shift+P --> `Remote-Containers*`
+## Getting Started
+Install https://code.visualstudio.com/insiders/
 
-Note the `.vscode/launch.json`
+Run `code-insiders .`, reload (because vscode sees `.devcontainer.json`)
+
+Install python extension (to be able to set breakpoints)
+
+Ctrl+Shift+P --> `Remote-Containers: Rebuild Container`
+
+Run via `Debug` > `Python: Django`
+
+## Notes
+set `$HOME` in Dockerfile so vscode can install stuff as the unprivileged user
+`app`
+https://github.com/Microsoft/vscode-remote-release/issues/22
+
+Command must be `sleep infinity` (see `docker-compose.vscode.yml`), because
+vscode needs to run `runserver` as described in `.vscode/launch.json`
