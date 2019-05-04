@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+
+  app:
+    build:
+      context: .
+      args:
+        UID: ${COMPOSE_UID}
+        GID: ${COMPOSE_GID}
+    command: "./manage.py runserver 0.0.0.0:8000"
+    environment:
+      - APP_ADMIN_PASSWORD
+      - DJANGO_DEBUG=true
+      # defaults from https://hub.docker.com/_/postgres/
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - ./:/opt/project
+    ports:
+      - 8000:8000
+    stop_signal: SIGINT
+
+  postgres:
+    environment:
+      - POSTGRES_PASSWORD
+

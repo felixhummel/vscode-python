@@ -1,0 +1,12 @@
+// See https://aka.ms/vscode-remote/containers for the
+// documentation about the devcontainer.json format
+{
+	"dockerComposeFile": [
+    "docker-compose.yml",
+    "docker-compose.override.yml",
+    "docker-compose.vscode.yml"
+  ],
+	"service": "app",
+	"workspaceFolder": "/opt/project",
+	"extensions": []
+}

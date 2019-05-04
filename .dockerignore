@@ -1,0 +1,9 @@
+.env
+.git
+.idea
+Dockerfile
+Makefile
+bin
+docker-compose*
+env
+md

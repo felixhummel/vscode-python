@@ -1,0 +1,30 @@
+version: '3.7'
+
+x-volume-labels: &volume-labels
+  labels:
+    - de.felixhummel.project=foo
+
+services:
+  app:
+    image: ${IMG}
+    environment:
+      - TERM
+    volumes:
+      - media:/srv/appdata/media
+      - static:/srv/appdata/static
+      - home:/home/app
+  postgres:
+    image: postgres:10.6
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  media:
+    <<: *volume-labels
+  static:
+    <<: *volume-labels
+  home:
+    <<: *volume-labels
+  postgres_data:
+    <<: *volume-labels
+

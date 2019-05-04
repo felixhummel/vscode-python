@@ -32,3 +32,9 @@ https://code.visualstudio.com/docs/python/python-tutorial
 ]
 ```
 
+# Remote Docker Compose
+set `$HOME` https://github.com/Microsoft/vscode-remote-release/issues/22
+
+Ctrl+Shift+P --> `Remote-Containers*`
+
+Note the `.vscode/launch.json`
